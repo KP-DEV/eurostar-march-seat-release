@@ -45,18 +45,18 @@ Banner.prototype.createElements = function () {
     parent: this.banner
   });
 
-  this.eCover = this.smartObject({
-    id: 'E-COVER',
-    left: 'none',
-    backgroundImage: 'images/eCover.png',
-    parent: this.banner
-  });
-
   this.copy = this.smartObject({
     id: 'COPY',
     top: 'none',
     left: 'none',
     backgroundImage: 'images/copy.png',
+    parent: this.banner
+  });
+
+  this.eCover = this.smartObject({
+    id: 'E-COVER',
+    left: 'none',
+    backgroundImage: 'images/eCover.png',
     parent: this.banner
   });
 
@@ -154,10 +154,10 @@ Banner.prototype.setupFlip = function (front, back) {
 Banner.prototype.animate = function () {
   var _this = this;
 
-  this.timeline = new TimelineLite()
+  this.timeline = new TimelineLite({paused: false})
     .to(this.eCover, 1, {x: '+=300'}, '+=2')
-    .from(this.copy, 1, {autoAlpha: 0})
-    .from(this.bg, 1, {autoAlpha: 0}, 'yellow+=1')
+    .from(this.copy, 1, {autoAlpha: 0}, '-=0.5')
+    .from(this.bg, 1, {x: '+=300'}, 'yellow+=1')
     .from(this.logo, 1, {autoAlpha: 0}, 'yellow+=1')
     .from(this.title, 1, {autoAlpha: 0})
     .from(this.price, 1, {autoAlpha: 0})
