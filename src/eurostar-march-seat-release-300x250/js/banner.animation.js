@@ -15,7 +15,7 @@ Banner.prototype.start = function () {
     'images/bg.jpg',
     'images/copy.png',
     'images/cta.png',
-    'images/eCover.png',
+    'images/e-cover.png',
     'images/image.jpg',
     'images/legal.png',
     'images/logo.png',
@@ -53,16 +53,29 @@ Banner.prototype.createElements = function () {
     parent: this.banner
   });
 
-  this.eCover = this.smartObject({
-    id: 'E-COVER',
+  this.bg = this.smartObject({
+    id: 'BG',
     left: 'none',
-    backgroundImage: 'images/eCover.png',
     parent: this.banner
   });
 
-  this.bg = this.smartObject({
-    id: 'BG',
-    backgroundImage: 'images/bg.jpg',
+    this.bg1 = this.smartObject({
+      id: 'BG1',
+      backgroundImage: 'images/bg.jpg',
+      parent: this.bg
+    });
+
+    this.bg2 = this.smartObject({
+      id: 'BG2',
+      left: 'none',
+      backgroundImage: 'images/bg.jpg',
+      parent: this.bg
+    });
+
+  this.eCover = this.smartObject({
+    id: 'E-COVER',
+    left: 'none',
+    backgroundImage: 'images/e-cover.png',
     parent: this.banner
   });
 
@@ -110,7 +123,9 @@ Banner.prototype.createElements = function () {
  * Setup initial element states.
  */
 Banner.prototype.setup = function () {
-  this.eCover.set({ right: 0});
+  this.eCover.center();
+  this.bg.set({ right: -150});
+  this.bg2.set({ right: '+=300'});
   this.copy.set({ bottom: 13, right: 17});
   this.title.centerHorizontal();
   this.title.set({ top: 24});
@@ -155,10 +170,10 @@ Banner.prototype.animate = function () {
   var _this = this;
 
   this.timeline = new TimelineLite({paused: false})
-    .to(this.eCover, 1, {x: '+=300'}, '+=2')
+    .to([this.eCover, this.bg], 1, {x: '+=300'}, '+=2')
     .from(this.copy, 1, {autoAlpha: 0}, '-=1')
-    .from(this.bg, 1, {x: '+=300'}, 'yellow+=1')
-    .from(this.logo, 1, {autoAlpha: 0}, 'yellow+=1')
+    .to([this.bg, this.eCover], 1.5, {x: '-=600'}, 'yellow+=1')
+    .from(this.logo, 1.5, {autoAlpha: 0}, 'yellow+=1')
     .from(this.title, 1, {autoAlpha: 0})
     .from(this.price, 1, {autoAlpha: 0})
     .from(this.cta, 1, {autoAlpha: 0})
