@@ -156,7 +156,7 @@ Banner.prototype.animate = function () {
 
   this.timeline = new TimelineLite({paused: false})
     .to(this.eCover, 1, {x: '+=300'}, '+=2')
-    .from(this.copy, 1, {autoAlpha: 0}, '-=0.5')
+    .from(this.copy, 1, {autoAlpha: 0}, '-=1')
     .from(this.bg, 1, {x: '+=300'}, 'yellow+=1')
     .from(this.logo, 1, {autoAlpha: 0}, 'yellow+=1')
     .from(this.title, 1, {autoAlpha: 0})
