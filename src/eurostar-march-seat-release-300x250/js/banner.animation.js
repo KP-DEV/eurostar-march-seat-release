@@ -176,8 +176,8 @@ Banner.prototype.animate = function () {
     .from(this.logo, 1.5, {autoAlpha: 0}, 'yellow+=1')
     .from(this.title, 1, {autoAlpha: 0})
     .from(this.price, 1, {autoAlpha: 0})
-    .from(this.cta, 1, {autoAlpha: 0})
-    .from(this.legal, 1, {autoAlpha: 0})
+    .from(this.cta, 1, {autoAlpha: 0}, 'cta-=0.5')
+    .from(this.legal, 1, {autoAlpha: 0}, 'cta-=0.5')
     .add( this.setupFlip(this.price, this.seats).play(), '+=1')
     .add( this.setupFlip(this.seats, this.price).play(), '+=2')
 
