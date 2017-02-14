@@ -173,7 +173,7 @@ Banner.prototype.animate = function () {
     .to([this.eCover, this.bg], 1, {x: '+=300'}, '+=2')
     .from(this.copy, 1, {autoAlpha: 0}, '-=1')
     .to([this.bg, this.eCover], 1.5, {x: '-=600'}, 'yellow+=1')
-    .from(this.logo, 1.5, {autoAlpha: 0}, 'yellow+=1')
+    .from(this.logo, 1.5, {autoAlpha: 0, x: '+=600'}, 'yellow+=1')
     .from(this.title, 1, {autoAlpha: 0})
     .from(this.price, 1, {autoAlpha: 0})
     .from(this.cta, 1, {autoAlpha: 0}, 'cta-=0.5')
