@@ -40,7 +40,7 @@ Banner.prototype.start = function () {
 Banner.prototype.createElements = function () {
 
   this.img = this.smartObject({
-    id: 'IMG',
+    id: 'IMG1',
     backgroundImage: 'images/image.jpg',
     parent: this.banner
   });
